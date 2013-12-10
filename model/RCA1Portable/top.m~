@@ -14,7 +14,6 @@ tda=Tda();
 % clouds in the directory. But of course the 
 % students can sub in their own point clouds for X
 
-
 % train = csvread('../data/num/separate_ages/train.csv',1,0);
 % X = vertcat(train(:,2:11),test);
 
