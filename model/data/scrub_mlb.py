@@ -2,7 +2,7 @@
 
 import csv
 
-data = {}
+data = []
 with open("mlb2.csv", "r") as f:
     reader = csv.reader(f)
     header = next(reader)
