@@ -34,52 +34,8 @@
 - Number of edges:                                                           
 -----------------------------------------------------------------------------
 
-[ERROR: TDA 0.0.6 (pre/alpha), 10/29/13 10:44:59 AM]
+[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 8:10:29 PM]
 [Input-related error] Details: The settings file 'data/cts.txt' cannot be found at location 'input'.
-
-
------------------------------------------------------------------------------
-                           End of error notification
------------------------------------------------------------------------------
-
-
-
-
------------------------------------------------------------------------------
-                                 ERROR DETAILS
------------------------------------------------------------------------------
-- TDA                                             Topological Data Analysis -
-- Release 0.0.6 (pre/alpha)                               30 September 2013 -
-- Copyright (c) 2012-2013 by John Harer                                     -
-- All rights reserved                                                       -
------------------------------------------------------------------------------
-- Project:                                     computational topology sandbox
-- User:                                                                  test
-- Dataset:                                          one of the test data sets
-- Notes:                                                                     
------------------------------------------------------------------------------
-- Input directory:                                                 data/input
-- Supply data as:                                              distanceMatrix
-- Point cloud file:                                        distMat_4pts_B.txt
-- Center points for local neighborhoods file:               setting not found
-- Points per local neighborhood:                            setting not found
------------------------------------------------------------------------------
-- Output directory:                                               data/output
-- Report file:                                results.2013.10.29.15.32.10.txt
-- 0D-intervals file:                      0Dintervals.2013.10.29.15.32.10.txt
-- 0D-diagram file:                                              0Ddiagram.txt
-- 1D-intervals file:                      1Dintervals.2013.10.29.15.32.10.txt
-- 1D-intervals-and-reps file:                          1DintervalsAndReps.txt
-- 1D-diagram file:                              1Dpic.2013.10.29.15.32.10.png
------------------------------------------------------------------------------
-- Distance bound on edges:                                                  8
-- Zp-value:                                                                -1
-- Number of points:                                                          
-- Number of edges:                                                           
------------------------------------------------------------------------------
-
-[ERROR: TDA 0.0.6 (pre/alpha), 10/29/13 3:32:10 PM]
-[Input-related error] Details: (Loading distance matrix) The data file for the distance matrix needs to have the same number of rows as columns.
 
 
 -----------------------------------------------------------------------------
@@ -122,8 +78,8 @@
 - Number of edges:                                                           
 -----------------------------------------------------------------------------
 
-[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 8:15:02 PM]
-[Input-related error] Details: The settings file 'RCA1Portable/data/cts.txt' cannot be found at location 'input'.
+[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 8:10:29 PM]
+[Input-related error] Details: The settings file 'data/cts.txt' cannot be found at location 'input'.
 
 
 -----------------------------------------------------------------------------
@@ -141,34 +97,34 @@
 - Copyright (c) 2012-2013 by John Harer                                     -
 - All rights reserved                                                       -
 -----------------------------------------------------------------------------
-- Project:                                     computational topology sandbox
-- User:                                                                  test
-- Dataset:                                          one of the test data sets
-- Notes:                                                                     
+- Project:                                                  setting not found
+- User:                                                     setting not found
+- Dataset:                                                  setting not found
+- Notes:                                                    setting not found
 -----------------------------------------------------------------------------
-- Input directory:                                                 data/input
-- Supply data as:                                                  pointCloud
-- Point cloud file:                                        distMat_4pts_B.txt
+- Input directory:                                          setting not found
+- Supply data as:                                           setting not found
+- Point cloud file:                                         setting not found
 - Center points for local neighborhoods file:               setting not found
 - Points per local neighborhood:                            setting not found
 -----------------------------------------------------------------------------
-- Output directory:                                               data/output
-- Report file:                                results.2013.12.09.20.22.23.txt
-- 0D-intervals file:                      0Dintervals.2013.12.09.20.22.23.txt
-- 0D-diagram file:                                              0Ddiagram.txt
-- 1D-intervals file:                      1Dintervals.2013.12.09.20.22.23.txt
-- 1D-intervals-and-reps file:                          1DintervalsAndReps.txt
-- 1D-diagram file:                              1Dpic.2013.12.09.20.22.23.png
+- Output directory:                                         setting not found
+- Report file:                                              setting not found
+- 0D-intervals file:                                        setting not found
+- 0D-diagram file:                                          setting not found
+- 1D-intervals file:                                        setting not found
+- 1D-intervals-and-reps file:                               setting not found
+- 1D-diagram file:                                          setting not found
 -----------------------------------------------------------------------------
-- Distance bound on edges:                                                 20
-- Zp-value:                                                                -1
+- Distance bound on edges:                                  setting not found
+- Zp-value:                                                 setting not found
 - Number of points:                                                          
 - Number of edges:                                                           
 -----------------------------------------------------------------------------
 
-[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 9:16:28 PM]
-Execution has stopped due to the following exception: 
-'java.lang.ArrayIndexOutOfBoundsException: 0'
+[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 8:10:29 PM]
+[Input-related error] Details: The settings file 'data/cts.txt' cannot be found at location 'input'.
+
 
 -----------------------------------------------------------------------------
                            End of error notification
@@ -185,34 +141,122 @@ Execution has stopped due to the following exception:
 - Copyright (c) 2012-2013 by John Harer                                     -
 - All rights reserved                                                       -
 -----------------------------------------------------------------------------
-- Project:                                     computational topology sandbox
-- User:                                                                  test
-- Dataset:                                          one of the test data sets
-- Notes:                                                                     
+- Project:                                                  setting not found
+- User:                                                     setting not found
+- Dataset:                                                  setting not found
+- Notes:                                                    setting not found
 -----------------------------------------------------------------------------
-- Input directory:                                                 data/input
-- Supply data as:                                                  pointCloud
-- Point cloud file:                                        distMat_4pts_B.txt
+- Input directory:                                          setting not found
+- Supply data as:                                           setting not found
+- Point cloud file:                                         setting not found
 - Center points for local neighborhoods file:               setting not found
 - Points per local neighborhood:                            setting not found
 -----------------------------------------------------------------------------
-- Output directory:                                               data/output
-- Report file:                                results.2013.12.09.20.22.23.txt
-- 0D-intervals file:                      0Dintervals.2013.12.09.20.22.23.txt
-- 0D-diagram file:                                              0Ddiagram.txt
-- 1D-intervals file:                      1Dintervals.2013.12.09.20.22.23.txt
-- 1D-intervals-and-reps file:                          1DintervalsAndReps.txt
-- 1D-diagram file:                              1Dpic.2013.12.09.20.22.23.png
+- Output directory:                                         setting not found
+- Report file:                                              setting not found
+- 0D-intervals file:                                        setting not found
+- 0D-diagram file:                                          setting not found
+- 1D-intervals file:                                        setting not found
+- 1D-intervals-and-reps file:                               setting not found
+- 1D-diagram file:                                          setting not found
 -----------------------------------------------------------------------------
-- Distance bound on edges:                                                 20
-- Zp-value:                                                                -1
+- Distance bound on edges:                                  setting not found
+- Zp-value:                                                 setting not found
 - Number of points:                                                          
 - Number of edges:                                                           
 -----------------------------------------------------------------------------
 
-[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 9:16:40 PM]
-Execution has stopped due to the following exception: 
-'java.lang.ArrayIndexOutOfBoundsException: 0'
+[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 8:12:42 PM]
+[Input-related error] Details: The settings file 'data/cts.txt' cannot be found at location 'input'.
+
+
+-----------------------------------------------------------------------------
+                           End of error notification
+-----------------------------------------------------------------------------
+
+
+
+
+-----------------------------------------------------------------------------
+                                 ERROR DETAILS
+-----------------------------------------------------------------------------
+- TDA                                             Topological Data Analysis -
+- Release 0.0.6 (pre/alpha)                               30 September 2013 -
+- Copyright (c) 2012-2013 by John Harer                                     -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                                  setting not found
+- User:                                                     setting not found
+- Dataset:                                                  setting not found
+- Notes:                                                    setting not found
+-----------------------------------------------------------------------------
+- Input directory:                                          setting not found
+- Supply data as:                                           setting not found
+- Point cloud file:                                         setting not found
+- Center points for local neighborhoods file:               setting not found
+- Points per local neighborhood:                            setting not found
+-----------------------------------------------------------------------------
+- Output directory:                                         setting not found
+- Report file:                                              setting not found
+- 0D-intervals file:                                        setting not found
+- 0D-diagram file:                                          setting not found
+- 1D-intervals file:                                        setting not found
+- 1D-intervals-and-reps file:                               setting not found
+- 1D-diagram file:                                          setting not found
+-----------------------------------------------------------------------------
+- Distance bound on edges:                                  setting not found
+- Zp-value:                                                 setting not found
+- Number of points:                                                          
+- Number of edges:                                                           
+-----------------------------------------------------------------------------
+
+[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 8:12:42 PM]
+[Input-related error] Details: The settings file 'data/cts.txt' cannot be found at location 'input'.
+
+
+-----------------------------------------------------------------------------
+                           End of error notification
+-----------------------------------------------------------------------------
+
+
+
+
+-----------------------------------------------------------------------------
+                                 ERROR DETAILS
+-----------------------------------------------------------------------------
+- TDA                                             Topological Data Analysis -
+- Release 0.0.6 (pre/alpha)                               30 September 2013 -
+- Copyright (c) 2012-2013 by John Harer                                     -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                                  setting not found
+- User:                                                     setting not found
+- Dataset:                                                  setting not found
+- Notes:                                                    setting not found
+-----------------------------------------------------------------------------
+- Input directory:                                          setting not found
+- Supply data as:                                           setting not found
+- Point cloud file:                                         setting not found
+- Center points for local neighborhoods file:               setting not found
+- Points per local neighborhood:                            setting not found
+-----------------------------------------------------------------------------
+- Output directory:                                         setting not found
+- Report file:                                              setting not found
+- 0D-intervals file:                                        setting not found
+- 0D-diagram file:                                          setting not found
+- 1D-intervals file:                                        setting not found
+- 1D-intervals-and-reps file:                               setting not found
+- 1D-diagram file:                                          setting not found
+-----------------------------------------------------------------------------
+- Distance bound on edges:                                  setting not found
+- Zp-value:                                                 setting not found
+- Number of points:                                                          
+- Number of edges:                                                           
+-----------------------------------------------------------------------------
+
+[ERROR: TDA 0.0.6 (pre/alpha), 12/9/13 8:12:42 PM]
+[Input-related error] Details: The settings file 'data/cts.txt' cannot be found at location 'input'.
+
 
 -----------------------------------------------------------------------------
                            End of error notification
