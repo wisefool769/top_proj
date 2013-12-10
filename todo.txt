@@ -1,0 +1,21 @@
+todo.txt
+
+- abstract (1)
+
+- description of data (1)
+
+- kernel functions
+    - euclidean (1/2)
+    - li (1)
+    - shit kernel (1)
+    - ?pca?
+ 
+- corresponding 0,1 persistence diagrams
+    - euclidean (1)
+    - li (1)
+    - shit kernel (1)
+
+- how do we make inferences from this topology? (2)
+
+
+- citations / bibtex (1)
