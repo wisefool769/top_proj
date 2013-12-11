@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/test-ksort-linear.dir/test-ksort-linear.o  -o test-ksort-linear  

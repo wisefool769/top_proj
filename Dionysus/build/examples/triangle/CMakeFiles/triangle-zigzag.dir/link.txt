@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/triangle-zigzag.dir/triangle-zigzag.o  -o triangle-zigzag  /usr/local/lib/libboost_serialization-mt.dylib 
