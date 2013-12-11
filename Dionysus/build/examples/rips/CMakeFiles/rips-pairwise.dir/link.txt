@@ -1,0 +1,1 @@
+/usr/bin/c++    -Wl,-search_paths_first -Wl,-headerpad_max_install_names   CMakeFiles/rips-pairwise.dir/rips-pairwise.o  -o rips-pairwise  /usr/local/lib/libboost_program_options-mt.dylib /usr/local/lib/libboost_serialization-mt.dylib 
