@@ -3,6 +3,7 @@ from os import listdir
 from os.path import isfile, join
 from dionysus import *
 
+
 def csv_to_list(filename):
     ret = []
     with open(filename, 'r') as f:
@@ -14,17 +15,17 @@ def csv_to_list(filename):
 def dist(a, b, p):
     return wasserstein_distance(a,b,p)
 
-num_chunks = 90
+num_chunks = 100
 p = 1
-data_directory = "/Users/aashiq/Dropbox/top_proj/small_diagrams/" + str(num_chunks) + "/"
+data_directory = "/Users/aashiq/Dropbox/top_proj/model/data/small_diagrams/" + str(num_chunks) + "/"
 
 files = [data_directory+f for f in listdir(data_directory) if isfile(join(data_directory,f)) and f.endswith(".csv") ]
 files.sort()
 
-print(csv_to_list(files[1]))
+# print(csv_to_list(files[1]))
 
 n = len(files)
-wmat = [[0] * n ] * n
+wmat = [[0 for i in range(n) ] for j in range(n)]
 for e1, f1 in enumerate(files):
     for e2, f2 in enumerate(files):
         diag1 = PersistenceDiagram(1,csv_to_list(f1))
@@ -39,6 +40,6 @@ with open("wass_kern_" + str(num_chunks) + ".csv", 'w') as f:
 
 
 
-print(wmat)
+# print(wmat)
 
 # print(wmat)
