@@ -1,0 +1,17 @@
+\begin{thebibliography}{1}
+
+\bibitem{samuelson1965}
+P.~A. Samuelson, ``Proof that properly anticipated prices fluctuate randomly,''
+  {\em Industrial management review}, vol.~6, no.~2, 1965.
+
+\bibitem{frost2005}
+A.~J. Frost and R.~R. Prechter, {\em Elliott wave principle: key to market
+  behavior}.
+\newblock Elliott Wave International, 2005.
+
+\bibitem{morozov2012}
+D.~Morozov, ``Dionysus: a c++ library for computing persistent homology.''
+  \url{http://www.mrzv.org/software/dionysus/}, 2012.
+\newblock [Online; accessed 12-December-2012].
+
+\end{thebibliography}

@@ -1,6 +1,22 @@
-\documentclass{article} % For LaTeX2e
+\documentclass{article}
 \usepackage{final_project,times}
-%\documentstyle[nips12submit_09,times,art10]{article} % For LaTeX 2.09
+\newcommand{\comment}[1]{}
+\usepackage[numbers]{natbib}
+\usepackage{booktabs}
+\usepackage{bbm}
+\usepackage{float}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd}
+\usepackage{array}
+%\usepackage{floatrow}
+\usepackage{mathptmx}
+\usepackage{alltt}
+\usepackage{textcomp}
+\newcolumntype{M}{>{$}c<{$}}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+%\documentstyle[nips12submit_09,times,art10]{article}
 
 
 \title{Analyzing Market Cycles with Persistent Homology}
@@ -24,169 +40,130 @@ Department of Mathematics, Duke University
 \maketitle
 
 \begin{abstract}
-The abstract paragraph should be indented 1/2~inch (3~picas) on both left and
-right-hand margins. Use 10~point type, with a vertical spacing of 11~points.
-The word \textbf{Abstract} must be centered, bold, and in point size 12. Two
-line spaces precede the abstract. The abstract must be limited to one
-paragraph.
+We examine stock price data from four major European indices between 1991 and 1998 using the machinery of Persistent Homology. First, we examine the topological structure of the stocks’ logarithmic returns. Secondly, we propose a method to predict future returns with homology, inspired by Elliott Wave Theory. Finally, we compare market behavior over different periods of time by clustering persistence diagrams.
 \end{abstract}
 
-\section{Final papers for STA613/CBB540, 2013}
+\newpage
 
-Please read carefully the
-instructions below, and follow them faithfully.
-\subsection{Style}
-
-Papers describing final project should be up to four pages long (not including bibliography). They should contain an abstract, introduction, related work, methods, results, discussion, and conclusion section, and figures and tables where necessary, and a bibliography. These papers are due on April 16th in class.
+\section{Introduction}
+Traders have different theories on price movements, derived from realms as diverse as stochastic processes and vedic astrology. Two of these include the Efficient Market Hypothesis and Elliot Wave Theory. The efficient market hypothesis holds that stock prices are a martingale, with an expected log return rate of 0 in the short run \cite{samuelson1965}. This view is popular among economists and mathematicians who can use this property to prove important results. However, many traders have had success using technical analysis-- the inference of future price movements from past patterns. The Elliot Wave Principle is one such technique, which suggests that the market oscillates between an optimistic, motive phase and a pessimistic, corrective phase at every time scale \cite{frost2005}. This cyclical motion is reminiscent of one-dimensional persistence. While we are sympathetic towards the efficient markets view, we decided to investigate the predictive power of cyclical motions in the market. 
 
 
-\subsection{Retrieval of style files}
+\section{Data}
+The data consists of prices of four major European indices – the DAX, SMI, CAC and FTSE – between 1991 and 1998. In mathematical theories of finance, price is not the quantity of interest; rather, financiers are more interested in the change in the logarithm of the price – the “log returns”. Therefore, we transformed our price data to log returns data. To do this, we divided the price from the $(t+1)$st time step by the price from the $t$th time step, and then computed its logarithm.
 
-The formatting instructions contained in these style files are summarized in
-sections \ref{gen_inst}, \ref{headings}, and \ref{others} below.
+One convenience of using log returns is that they are additive. So, if we wished to understand topological structure in monthly log returns, we could simply add the log returns for each month, and compute persistence. 
 
-\section{General formatting instructions}
-\label{gen_inst}
+\section{Methods}
 
-The text must be confined within a rectangle 5.5~inches (33~picas) wide and
-9~inches (54~picas) long. The left margin is 1.5~inch (9~picas).
-Use 10~point type with a vertical spacing of 11~points. Times New Roman is the
-preferred typeface throughout. Paragraphs are separated by 1/2~line space,
-with no indentation.
+\subsection{Persistent Homology over Log Returns}
+We can compute persistence for the log returns data. The computation of the  0-dimensional diagram is similar to a general-purpose clustering algorithm. Persistent structure would suggest the existence of several distinct archetypes with characteristic return profiles. Returns on a given day could be characterized by one of these. The computation of the 1-dimensional persistence tells us about the existence of periodicity. 
 
-Paper title is 17~point, initial caps/lower case, bold, centered between
-2~horizontal rules. Top rule is 4~points thick and bottom rule is 1~point
-thick. Allow 1/4~inch space above and below title to rules. All pages should
-start at 1~inch (6~picas) from the top of the page.
+We have too many points to blindly compute persistence over all length scales. We can generate the pairwise distance for 100,000 randomly selected days to get a sense for the characteristic length scales at which features might appear. We expect that most features should begin to appear before we connect each data point to a full half of the remaining data. We set the maximum edge length close to but below the median and proceed. The algorithm still takes an inordinate amount of time, so we can sample 200 points and compute persistence for these. This sampling is only done for exploratory analysis of the daily log-returns considered as a whole, and not for the chunked data considered below.
+
+%% FIX THIS
+\subsection{Wasserstein Distance}
+
+We can separate the data into $n$-day chunks and compute the 1-dimensional persistence diagrams for each chunk, to characterize the cyclical behavior. The Wasserstein distance gives a metric for comparing persistence diagrams. Let $X$ and $Y$ be two persistence diagrams. A persistence diagram consists of a sequence of birth and death time pairs along with the infinitely many points on the diagonal where birth equals death . Let $\eta$ denote a perfect matcing between $X$ and $Y$, a bijection where points are matched up wherever possible and leftovers are sent to the closest point on the diagonal. Then the $q^{\text{th}}$ Wasserstein distance (WD)  is given by 
+\[
+W_q(X,Y) = \left[ \text{inf}_{\eta:X \rightarrow Y} \sum_{x \in X} || x  - \eta(x) ||^q_\infty \right]^{\frac{1}{q}}
+\]
+
+By computing the pairwise WD between chunks in the training set, we arrive at an $lfloor \frac{1833}{n} \rfloor$ -dimensional kernel, denoted $W_n$. We used Dmitriy Morozov’s Dionysus library for computation \cite{morozov2012}.
+
+\subsection{Persistence of persistence diagrams}
+Elliot Wave Theory maintains that cyclical structure in the markets is evident at every time scale. We can compute persistence on the set of persistence diagrams for an $n$-day partition of the data using $W_n$ as an explicit distance matrix. This gives a notion of structure among chunks considered as individual objects, elucidating the potential fractal structure of one-cycles.
 
 
-\section{Headings: first level}
-\label{headings}
+\section{Interpretation}
 
-First level headings are lower case (except for first word and proper nouns),
-flush left, bold and in point size 12. One line space before the first level
-heading and 1/2~line space after the first level heading.
-
-\subsection{Headings: second level}
-
-Second level headings are lower case (except for first word and proper nouns),
-flush left, bold and in point size 10. One line space before the second level
-heading and 1/2~line space after the second level heading.
-
-\subsubsection{Headings: third level}
-
-Third level headings are lower case (except for first word and proper nouns),
-flush left, bold and in point size 10. One line space before the third level
-heading and 1/2~line space after the third level heading.
-
-\section{Citations, figures, tables, references}
-\label{others}
-
-These instructions apply to everyone, regardless of the formatter being used.
-
-\subsection{Citations within the text}
-
-Citations within the text should be numbered consecutively. The corresponding
-number is to appear enclosed in square brackets, such as [1] or [2]-[5]. The
-corresponding references are to be listed in the same order at the end of the
-paper, in the \textbf{References} section. (Note: the standard
-\textsc{Bib\TeX} style \texttt{unsrt} produces this.) As to the format of the
-references themselves, any style is acceptable as long as it is used
-consistently.
-
-\subsection{Figures}
-
-All artwork must be neat, clean, and legible. Lines should be dark
-enough for purposes of reproduction; art work should not be
-hand-drawn. The figure number and caption always appear after the
-figure. Place one line space before the figure caption, and one line
-space after the figure. The figure caption is lower case (except for
-first word and proper nouns); figures are numbered consecutively.
-
-Make sure the figure caption does not get separated from the figure.
-Leave sufficient space to avoid splitting the figure and figure caption.
-
-\begin{figure}[h]
+\subsection{General persistence over log returns}
+The resulting distribution is shown in the figure below. 
+\begin{figure}
 \begin{center}
-%\framebox[4.0in]{$\;$}
-\fbox{\rule[-.5cm]{0cm}{4cm} \rule[-.5cm]{4cm}{0cm}}
+\includegraphics[width = 3.5 in, height = 3.5 in]{globplots/lr-dist}
+\caption{The median is 0.02}
+\label{lrdist}
 \end{center}
-\caption{Sample figure caption.}
 \end{figure}
 
-\subsection{Tables}
-
-All tables must be centered, neat, clean and legible. Do not use hand-drawn
-tables. The table number and title always appear before the table. See
-Table~\ref{sample-table}.
-
-Place one line space before the table title, one line space after the table
-title, and one line space after the table. The table title must be lower case
-(except for first word and proper nouns); tables are numbered consecutively.
-
-\begin{table}[t]
-\caption{Sample table title}
-\label{sample-table}
-\begin{center}
-\begin{tabular}{ll}
-\multicolumn{1}{c}{\bf PART}  &\multicolumn{1}{c}{\bf DESCRIPTION}
-\\ \hline \\
-Dendrite         &Input terminal \\
-Axon             &Output terminal \\
-Soma             &Cell body (contains cell nucleus) \\
-\end{tabular}
-\end{center}
-\end{table}
-
-\section{Final instructions}
-Do not change any aspects of the formatting parameters in the style
-files.  In particular, do not modify the width or length of the
-rectangle the text should fit into, and do not change font sizes.
-Please note that pages should be numbered.
-
-\section{Preparing PostScript or PDF files}
-
-Please prepare PostScript or PDF files with paper size ``US Letter'', and
-not, for example, ``A4''. The -t
-letter option on dvips will produce US Letter files.
-
-\begin{itemize}
-
-\item Consider directly generating PDF files using \verb+pdflatex+
-
-\item Otherwise, please generate your PostScript and PDF files with the following commands:
-\begin{verbatim} 
-dvips mypaper.dvi -t letter -Ppdf -G0 -o mypaper.ps
-ps2pdf mypaper.ps mypaper.pdf
-\end{verbatim}
-\end{itemize}
 
 
-\subsubsection*{Acknowledgments}
+\begin{figure}
+\centering
+\begin{subfigure}[htbp]{0.45 \textwidth}
+\includegraphics[width = \linewidth]{globplots/rlr-200-0-f15e-3}
+\caption{We have a few clusters}
+\label{lr0}
+\end{subfigure}
+~
+\begin{subfigure}[htbp]{0.45 \textwidth}
+\includegraphics[width = \linewidth]{globplots/rlr-200-1-f15e-3}
+\caption{There are no persistent 1-cycles}
+\label{lr1}
+\end{subfigure}
+\label{lr}
+\end{figure}
 
-Use unnumbered third level headings for the acknowledgments. All
-acknowledgments go at the end of the paper.
 
-\subsubsection*{References}
 
-References follow the acknowledgments. Use unnumbered third level heading for
-the references. Any choice of citation style is acceptable as long as you are
-consistent. CITE A LOT. Any unreferenced methods, prior work, or biological phenomenon, unless it is textbook-common, will be penalized.
+\subsection{Predicting Returns using Market Cycles}
+Our method, chunk size = 30 0.08297711
+Benchmark method, chunk size = 30 0.07266716
+Our method, chunk size = 60, 0.1480877
+Benchmark method, chunk size = 600.1218124
+Our method, chunk size = 90 0.1176165
+Benchmark method, chunk size = 90 0.1494282
+Our method, chunk size = 100 0.1229456
+Benchmark method, chunk size = 100 0.1583943
 
-\small{
-[1] Alexander, J.A. \& Mozer, M.C. (1995) Template-based algorithms
-for connectionist rule extraction. In G. Tesauro, D. S. Touretzky
-and T.K. Leen (eds.), {\it Advances in Neural Information Processing
-Systems 7}, pp. 609-616. Cambridge, MA: MIT Press.
 
-[2] Bower, J.M. \& Beeman, D. (1995) {\it The Book of GENESIS: Exploring
-Realistic Neural Models with the GEneral NEural SImulation System.}
-New York: TELOS/Springer-Verlag.
+\subsection{Similarity over Time Scales}
+Computing persistence between chunks resulted in trivial 0-D diagrams and slightly less trivial 1-D diagrams.
 
-[3] Hasselmo, M.E., Schnell, E. \& Barkai, E. (1995) Dynamics of learning
-and recall at excitatory recurrent synapses and cholinergic modulation
-in rat hippocampal region CA3. {\it Journal of Neuroscience}
-{\bf 15}(7):5249-5262.
-}
+\begin{figure}
+\centering
+\begin{subfigure}[htbp]{0.45 \textwidth}
+\includegraphics[width = \linewidth]{psqplots/p2-1-90}
+\caption{$n = 30$}
+\label{p2-1-30}
+\end{subfigure}
+~
+\begin{subfigure}[htbp]{0.45 \textwidth}
+\includegraphics[width = \linewidth]{psqplots/p2-1-60}
+\caption{$n = 60$}
+\label{p2-1-60}
+\end{subfigure}
+
+\begin{subfigure}[htbp]{0.45 \textwidth}
+\includegraphics[width = \linewidth]{psqplots/p2-1-90}
+\caption{$n = 90$}
+\label{p2-1-90}
+\end{subfigure}
+
+\caption{1-D Persistence for Various Chunk Sizes}
+\end{figure}
+
+\section{Conclusion}
+
+\section{Future Investigations}
+\subsection{Kernel-Based Methods}
+We have computed a kernel based on Wasserstein distance, and this can be used in a number of machine learning algorithms. Suppose we want to discriminate between winning, losing, and constant months. We can use our kernel to train a support vector machine, projecting our data into a higher-dimensional space where the three classes are linearly separable. Alternatively, we can employ PCA to reduce the dimensionality of the data. In this way, persistence diagrams might be characterized by  a few eigendiagrams.
+
+
+\subsection{Options pricing}
+In our investigation thus far, we have only considered this 4-dimensional data on European stock indices. The 4 indices are highly correlated, potentially accounting for the dearth of interesting structure. Alternatively, we might look at prices of options. American options give the holder the right but not the obligation to buy or sell a given security on or before a given date for a specified price. The value of an option is a function of the price of the underlying, the volatility, and the interest rate. These quantities are less correlated than the major  European indices, but are related in interesting ways in different market climates. Thus, we expect there to be more interesting topological structure.
+
+\subsection{Explicit Time-Dependence}
+
+\nocite{*}
+\bibliography{final_project}
+\bibliographystyle{ieeetr}
+
 
 \end{document}
+
+
+
+
+
