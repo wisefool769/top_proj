@@ -1,0 +1,49 @@
+\begin{thebibliography}{10}
+
+\bibitem{samuelson1965}
+P.~A. Samuelson, ``Proof that properly anticipated prices fluctuate randomly,''
+  {\em Industrial management review}, vol.~6, no.~2, 1965.
+
+\bibitem{frost2005}
+A.~J. Frost and R.~R. Prechter, {\em Elliott wave principle: key to market
+  behavior}.
+\newblock Elliott Wave International, 2005.
+
+\bibitem{mandelbrot2005}
+B.~Mandelbrot, R.~L. Hudson, and E.~Grunwald, ``The (mis) behaviour of
+  markets,'' {\em The Mathematical Intelligencer}, vol.~27, no.~3, pp.~77--79,
+  2005.
+
+\bibitem{rprog}
+{R Core Team}, {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria, 2013.
+
+\bibitem{phom}
+A.~Tausz, {\em phom: Persistent Homology in R}, 2011.
+\newblock Version 1.0.2.
+
+\bibitem{TDA}
+J.~Harer, ``Rca1portable.''
+
+\bibitem{de2011}
+V.~De~Silva, D.~Morozov, and M.~Vejdemo-Johansson, ``Dualities in persistent
+  (co) homology,'' {\em Inverse Problems}, vol.~27, no.~12, p.~124003, 2011.
+
+\bibitem{morozov2012}
+D.~Morozov, ``Dionysus: a c++ library for computing persistent homology.''
+  \url{http://www.mrzv.org/software/dionysus/}, 2012.
+
+\bibitem{muldoon1993}
+M.~Muldoon, R.~MacKay, J.~Huke, and D.~Broomhead, ``Topology from time
+  series,'' {\em Physica D: Nonlinear Phenomena}, vol.~65, no.~1, pp.~1--16,
+  1993.
+
+\bibitem{edelsbrunner2010}
+H.~Edelsbrunner and J.~L. Harer, {\em Computational topology: an introduction}.
+\newblock AMS Bookstore, 2010.
+
+\bibitem{ggplot2}
+H.~Wickham, {\em ggplot2: elegant graphics for data analysis}.
+\newblock Springer New York, 2009.
+
+\end{thebibliography}
