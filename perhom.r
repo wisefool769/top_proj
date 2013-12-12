@@ -8,15 +8,12 @@ library(ggplot2)
 
 
 data(EuStockMarkets)
-eu <- unique(EuStockMarkets)
-l <- dim(eu)[1]
-lr <- log(eu[2:l,]/eu[1:l-1,])
-somelr200 <- lr[sample(nrow(lr),size=200,replace=TRUE),]
-somelr100 <- lr[sample(nrow(lr),size=100,replace=TRUE),]
-somelr500 <- lr[sample(nrow(lr),size=500,replace=TRUE),]
-write.table(somelr200, file = "model/data/lr_sample-200.csv", sep = ",")
-write.table(somelr100, file = "model/data/lr_sample-100.csv", sep = ",")
-write.table(somelr500, file = "model/data/lr_sample-500.csv", sep = ",")
+# eu <- unique(EuStockMarkets)
+# l <- dim(eu)[1]
+# lr <- log(eu[2:l,]/eu[1:l-1,])
+# nr <- 200
+
+# somelr <- lr[sample(nrow(lr),size=nr,replace=TRUE),]
 
 
 # ns <- 100000
@@ -32,27 +29,28 @@ write.table(somelr500, file = "model/data/lr_sample-500.csv", sep = ",")
 
 
 # max_dim <- 1
-# max_f <- 0.1
+# max_f <- 0.015
 
 # intervals <- pHom(somelr, max_dim, max_f)
 
-# diagram <- data.frame(intervals[intervals[,1] == 1,])
-# colnames(diagram) <- c("dim", "birth", "death")
+diagram <- data.frame(intervals[intervals[,1] == 0,])
+colnames(diagram) <- c("dim", "birth", "death")
 
 
 
-# # # for(nc in c("30", "60", "90", "100")){
-# # #     for(np in c("0", "1")){
-# # #         f <- paste("p2-",np,"-",nc, sep = "")
-# # #         diagram <- data.frame(read.csv(paste("model/data/psquared/",f,".csv",sep = ""), header = FALSE))
-# #         # colnames(diagram) <- c("birth", "death")
-        # p <- qplot(birth, death, data = diagram) + geom_point(colour="red") 
-        # p1 <- p + ggtitle(paste("0-dimensional persistence diagram", sep = "")) + geom_abline(intercept=0, slope=1)
+# # # # for(nc in c("30", "60", "90", "100")){
+# # # #     for(np in c("0", "1")){
+# # # #         f <- paste("p2-",np,"-",nc, sep = "")
+# # # #         diagram <- data.frame(read.csv(paste("model/data/psquared/",f,".csv",sep = ""), header = FALSE))
+# # #         # colnames(diagram) <- c("birth", "death")
+        p <- qplot(birth, death, data = diagram) + geom_point(colour="red") 
+        p1 <- p + ggtitle(paste("0-dimensional persistence diagram", sep = "")) + geom_abline(intercept=0, slope=1) + 
+        xlim(0,0.015) + ylim(0,0.015)
 
-        # setEPS()
-        # postscript(paste("writeup/rlr-200-0-f1e-2.eps",sep = ""))
-        # plot(p1)
-        # dev.off()
+        setEPS()
+        postscript(paste("writeup/rlr-200-0-f15e-3.eps",sep = ""))
+        plot(p1)
+        dev.off()
 # #     }
 
 # # }
