@@ -41,7 +41,7 @@ l <- nrow(eu)
 X <- log(eu[2:l,]/eu[1:l-1,])
 
 max_dim <- 1
-max_f <- 1
+max_f <- 100
 
 intervals <- pHom(X, max_dim, max_f)
 

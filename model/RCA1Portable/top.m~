@@ -17,32 +17,26 @@ tda=Tda();
 % train = csvread('../data/num/separate_ages/train.csv',1,0);
 % X = vertcat(train(:,2:11),test);
 
-X = csvread('../data/wus_pratio_noheader.csv',0,0);
+nc = 30
+X = csvread(strcat('../data/wass/wass_kern_',int2str(nc),'.csv'),0,0);
+% Y = X'
+% Y = Y(:)'
+% me = mean(Y)
 
-tda.RCA1( { 'settingsFile=data/cts.txt', 'supplyDataAs=pointCloud','distanceBoundOnEdges= 25'}, X );
+
+
+% tda.RCA1( { 'settingsFile=data/cts.txt', 'supplyDataAs=distanceMatrixs','distanceBoundOnEdges= 25'}, X );
   
-% Now let's extract the zero and one dimensional diagrams.
+
+ 
+% Note that I and J are now both (number of points in diagram) X 2 arrays. 
+
+tda.RCA1( { 'settingsFile=data/cts.txt', 'supplyDataAs=distanceMatrix','distanceBoundOnEdges=10'}, X );
+
 
 I = tda.getResultsRCA1(0).getIntervals();
 J = tda.getResultsRCA1(1).getIntervals();
- 
-% Note that I and J are now both (number of points in diagram) X 2 arrays. 
-% You may plot them if you like, or you may do
- % whatever you would like to do with an array.
- 
-% % If you want to run this on an arbitrary "distance matrix" D,
-% % first you produce such a matrix at your will, and then you run:
-% 
-% tda.RCA1( { 'settingsFile=data/cts.txt', 'supplyDataAs=distanceMatrix','distanceBoundOnEdges=20'}, X );
-%  
-% % Finally, if you want your distance matrix to take sparse 
-% % form S, you first create a sparse matrix S. It needs to be
-% % created in the following form. If N is the number of
-% % non-zero entries in your matrix, then S must be a N X 3 array,
-% % with each row taking the form  (i,j,#), where # is the nonzero
-% % entry in row i and row j of the matrix.
-% 
-% % With S produced, you then just run:
-% 
-% tda.RCA1( { 'settingsFile=data/cts.txt', 'supplyDataAs=sparseMatrix','distanceBoundOnEdges=20'}, X );
+
+writecsv('../data/p2-0-30.csv',I)
+writecsv('../data/p2-1-30.csv',J)
 
